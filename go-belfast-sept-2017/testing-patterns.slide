@@ -1,0 +1,60 @@
+Testing Patterns
+Go Belfast Meetup
+Tags: go golang testing
+
+4th September 2017
+Senior Engineer, ShopKeep
+me@deano.io
+@deanobarn
+
+Dean Barnett
+
+* disclaimer
+
+- I'm probably wrong
+
+* ???
+- Data Driven Tests
+- Test Data
+- Using Interfaces
+- _test package
+- Benchmarking
+- Quick Overview of useful packages
+
+* Data Driven
+.code data-test.go /^func TestValidHostableURL/,/^}/
+
+* Data Driven
+.code data-test-output.txt
+
+* Test Data
+.code test-data.go /^func getDir/,/^}/
+- Relative Path :(
+
+* Test Data
+.code test-data.go /^func dankFixture/,/^}/
+
+- The go tool will ignore a directory named "testdata", making it available to hold ancillary data needed by the tests.
+
+* Interfaces
+- I want to test my function in isolation
+- It's dependancy does crazy things
+.code test-interfaces.go
+
+* Special Package
+- I'm creating a package and want to test it from the outside
+- This will allow me make sure I don't use unexported identifiers
+.code test-test-package.go
+
+* Benchmarking
+.code test-benchmark.go
+  go test -bench=.
+- BenchmarkReverse    10000000    282 ns/op
+
+* Useful Packages
+- github.com/stretchr/testify/assert
+- github.com/zimmski/go-mutesting
+- github.com/dvyukov/go-fuzz
+- go test -cover
+
+.link https://github.com/avelino/awesome-go#testing Awesome Go Testing
